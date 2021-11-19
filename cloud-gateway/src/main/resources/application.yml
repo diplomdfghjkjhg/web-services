@@ -11,26 +11,6 @@ spring:
           uri: lb://STOCK-SERVICE
           predicates:
             - Path=/stocks/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: STOCK-SERVICE
-                fallbackuri: forward:/stockServiceFallBack
-
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 4000
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
-
 
 eureka:
   client:
