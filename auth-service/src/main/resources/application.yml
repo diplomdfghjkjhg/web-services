@@ -1,0 +1,21 @@
+server:
+  port: 9005
+  error:
+    include-binding-errors: always
+    include-message: always
+
+spring:
+  application:
+    name: AUTH-SERVICE
+  datasource:
+    password:
+    username:
+    url: jdbc:postgresql://localhost:5431/registration
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
