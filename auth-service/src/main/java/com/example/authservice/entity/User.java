@@ -17,6 +17,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -30,29 +31,32 @@ public class User implements UserDetails {
             generator = "user_sequence"
     )
     private Long id;
-    private String name;
-    private String username;
+    @Column(name = "firstName")
+    private String firstName;
+    @Column(name = "lastName")
+    private String lastName;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(name = "userRole")
     private UserRole userRole;
-    private Boolean locked;
-    private Boolean enabled;
+    @Column(name = "locked")
+    private Boolean locked = false;
+    @Column(name = "enabled")
+    private Boolean enabled = false;
 
-    public User(String name,
-                String username,
+    public User(String firstName,
+                String lastName,
                 String email,
                 String password,
-                UserRole userRole,
-                Boolean locked,
-                Boolean enabled) {
-        this.name = name;
-        this.username = username;
+                UserRole userRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.userRole = userRole;
-        this.locked = locked;
-        this.enabled = enabled;
     }
 
     @Override
@@ -68,7 +72,15 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     @Override
