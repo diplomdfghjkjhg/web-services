@@ -28,22 +28,43 @@ public class ConfirmationToken {
     private Long id;
     @Column(nullable = false, name = "token")
     private String token;
-    @Column(nullable = false, name = "created_at")
+    @Column(nullable = false, name = "createdat")
     private LocalDateTime createdAt;
-    @Column(nullable = false, name = "expired_at")
+    @Column(nullable = false, name = "expiredat")
     private LocalDateTime expiredAt;
-    @Column(nullable = false, name = "confirmed_at")
+    @Column(name = "confirmedat")
     private LocalDateTime confirmedAt;
 
     @ManyToOne
-    @JoinColumn(nullable = false, name = "userId", referencedColumnName = "tokenid")
+    @MapsId
+    @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id")
     private User user;
 
-    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, LocalDateTime confirmedAt, User user) {
+    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, User user) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiredAt = expiredAt;
-        this.confirmedAt = confirmedAt;
         this.user = user;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getExpiredAt() {
+        return expiredAt;
+    }
+
+    public void setExpiredAt(LocalDateTime expiredAt) {
+        this.expiredAt = expiredAt;
+    }
+
+    public LocalDateTime getConfirmedAt() {
+        return confirmedAt;
+    }
+
 }
