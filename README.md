@@ -1,2 +1,2 @@
-# micro-services
+# Microservice architecture of a trading application
 
