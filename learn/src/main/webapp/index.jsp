@@ -34,7 +34,7 @@
     <img src="https://www.meme-arsenal.com/memes/f38fdb2b80ed54e3d9e0005f76d7f82f.jpg">
     <br>
     <form action="/hello_world">
-    <button class="helloButton">Hello World!</button>
+    <button class="helloButton">Hello button</button>
     </form>
 </main>
 <footer>
