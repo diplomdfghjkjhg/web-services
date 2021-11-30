@@ -31,21 +31,24 @@ public class User implements UserDetails {
             generator = "user_sequence"
     )
     private Long id;
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;
     @Enumerated(EnumType.STRING)
-    @Column(name = "userRole")
+    @Column(name = "user_role")
     private UserRole userRole;
     @Column(name = "locked")
     private Boolean locked = false;
     @Column(name = "enabled")
     private Boolean enabled = false;
+    @Column(name = "tokenid")
+    private Long tokenid;
+
 
     public User(String firstName,
                 String lastName,
