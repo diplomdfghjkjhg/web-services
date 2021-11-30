@@ -15,6 +15,9 @@ import java.util.List;
 @NoArgsConstructor
 public class StockPriceHistory {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long HistoryId;
     private String date;
     private Integer price;
+    private Integer StockId;
 }

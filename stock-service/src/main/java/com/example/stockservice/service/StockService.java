@@ -27,6 +27,14 @@ public class StockService {
 
     public List<Stock> getAllStocks() {
         log.info("Inside getAllStocks of StockService");
+        return (List<Stock>) stockRepository.findAll();
+    }
+
+    public Iterable<Stock> findAll() {
         return stockRepository.findAll();
+    }
+    public Stock findByStockNameShort(String stockNameShort){
+        log.info("Inside findByStockId of StockService");
+        return stockRepository.findByStockNameShort(stockNameShort);
     }
 }
